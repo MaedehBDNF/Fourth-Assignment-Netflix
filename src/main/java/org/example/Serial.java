@@ -14,6 +14,12 @@ public class Serial extends TVShow {
         this.duration = duration;
     }
 
+    public Serial(Serial serial){
+        super(serial.getTitle(), serial.getGenre(), serial.getYearOfPublication(), serial.getGenerateCountry(), serial.getCastList());
+        this.numOfSeasons = serial.getNumOfSeasons();
+        this.duration = serial.getDuration();
+    }
+
     public int getNumOfSeasons() {
         return numOfSeasons;
     }
@@ -44,11 +50,6 @@ public class Serial extends TVShow {
             this.updateDuration(newEpisode);
             this.updateCastList(newEpisode);
         }
-    }
-
-    public void updateEpisode(Movie mainEpisode, Movie updatedEpisode) {
-        int index = this.episodes.indexOf(mainEpisode);
-        this.episodes.set(index, updatedEpisode);
     }
 
     private void updateDuration(Movie episode) {
