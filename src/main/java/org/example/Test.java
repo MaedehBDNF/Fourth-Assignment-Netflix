@@ -22,7 +22,15 @@ public class Test {
         ArrayList<String> friendsCasts = new ArrayList<>();
         friendsCasts.add("Jennifer Aniston");
         friendsCasts.add("Courteney Cox");
-        Serial friends = new Serial("friends", "Sitcome", 1994,"USA" ,10, friendsDuration, friendsCasts);
+        friendsCasts.add("Matthew Perry");
+        friendsCasts.add("Matt LeBlanc");
+        friendsCasts.add("David Schwimmer");
+        friendsCasts.add("Lisa Kudrow");
+        Serial friends = new Serial("Friends", "Sitcome", 1994,"USA" ,10, friendsDuration, friendsCasts);
+        Movie theOneWithMrsBing = new Movie("theOneWithMrsBing", "Sitcome", 1994, 22, "USA",friendsCasts);
+        Movie theOneWithAllThePoker = new Movie("theOneWithAllThePoker", "Sitcome", 1994, 22, "USA",friendsCasts);
+        friends.addEpisode(theOneWithMrsBing);
+        friends.addEpisode(theOneWithAllThePoker);
         netflixService.addShow(friends);
         ArrayList<TVShow> sitcomes;
         sitcomes = netflixService.searchByGenre("Sitcome");
@@ -36,5 +44,10 @@ public class Test {
         netflixService.createAccount("user2","pass_word2");
         netflixService.rate(friends, 8);
         System.out.println(friends); // rate is 9 as wll as we expected
+
+        // test recommend
+        netflixService.recommend(friends, theOneWithAllThePoker);
+        System.out.println(friends.getEpisodes().get(1).getAdvisers());
+        System.out.println(netflixService.getCurrentUser().getRecommendations());
     }
 }
