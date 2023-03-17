@@ -39,7 +39,7 @@ public class User {
         favoritesAndHistory.addAll(watchHistory);
 
         for(TVShow show: favoritesAndHistory) {
-            if (show.getTitle().equals(title)) {
+            if (show.getTitle().equalsIgnoreCase(title)) {
                 result.add(show);
             }
         }
@@ -53,7 +53,7 @@ public class User {
         favoritesAndHistory.addAll(watchHistory);
 
         for(TVShow show: favoritesAndHistory) {
-            if (show.getGenre().equals(genre)) {
+            if (show.getGenre().equalsIgnoreCase(genre)) {
                 result.add(show);
             }
         }

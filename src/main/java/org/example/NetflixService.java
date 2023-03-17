@@ -52,7 +52,7 @@ public class NetflixService {
         ArrayList<TVShow> result = new ArrayList<>();
 
         for(TVShow show: this.shows) {
-            if (show.getTitle().equals(title)) {
+            if (show.getTitle().equalsIgnoreCase(title)) {
                 result.add(show);
             }
         }
@@ -63,7 +63,7 @@ public class NetflixService {
         ArrayList<TVShow> result = new ArrayList<>();
 
         for(TVShow show: this.shows) {
-            if (show.getGenre().equals(genre)) {
+            if (show.getGenre().equalsIgnoreCase(genre)) {
                 result.add(show);
             }
         }
